@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/{{ site.version.bulma }}/css/bulma.min.css">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="shortcut icon" type="image/png" href="{{ site.favicon.sixteen }}" sizes="16x16"/>
+  <link rel="shortcut icon" type="image/png" href="{{ site.favicon.thirtytwo }}" sizes="32x32"/>
+  <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <nav class="navbar-brand">
+        <a class="navbar-item" href="/">{{ site.name }}</a>
+      </nav>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="/">Posts</a>
+        </div>
+        <div class="navbar-end">
+          {% if site.navigation.github %}
+            <a class="navbar-item text-github" href="https://github.com/{{ site.navigation.github }}">
+              <i class="fab fa-lg fa-github"></i>
+            </a>
+          {% endif %}
+          {% if site.navigation.twitter %}
+            <a class="navbar-item text-twitter" href="https://twitter.com/{{ site.navigation.twitter }}">
+              <i class="fab fa-lg fa-twitter"></i>
+            </a>
+          {% endif %}
+          {% if site.navigation.facebook %}
+            <a class="navbar-item text-facebook" href="https://www.facebook.com/{{ site.navigation.facebook }}">
+              <i class="fab fa-lg fa-facebook"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+  {% if page.title %}
+    <header class="hero is-link">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            {{ page.title }}
+          </h1>
+          <h2 class="subtitle">
+            {{ page.subtitle }}
+          </h2>
+        </div>
+      </div>
+    </header>
+  {% endif %}
+  <section class="section">
+    <div class="container">
+      {{ content }}
+    </div>
+  </section>
+</body>
+</html>

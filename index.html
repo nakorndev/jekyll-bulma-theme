@@ -1,0 +1,21 @@
+---
+layout: default
+title: Homepage
+subtitle: A home page for you
+---
+
+{% for post in site.posts %}
+  <article class="media">
+    <div class="media-content">
+      <h1 class="title">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h1>
+      <h2 class="subtitle">
+        {{ post.date }}
+      </h2>
+      <div class="content">
+        {{ post.excerpt }}
+      </div>
+    </div>
+  </article>
+{% endfor %}

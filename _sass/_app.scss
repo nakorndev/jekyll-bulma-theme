@@ -1,0 +1,15 @@
+$github: #333333;
+$twitter: #1da1f2;
+$facebook: #3b5998;
+
+.text-github, a.navbar-item.text-github:hover {
+  color: $github;
+}
+
+.text-twitter, a.navbar-item.text-twitter:hover {
+  color: $twitter;
+}
+
+.text-facebook, a.navbar-item.text-facebook:hover {
+  color: $facebook;
+}

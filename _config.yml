@@ -1,0 +1,40 @@
+# Site information
+
+name: "jekyll-bulma-theme"
+title: "Jekyll Bulma Theme: a modern CSS for Jekyll user"
+description: "A pure Bulma theme for jekyll, easier to setup, and available for free."
+# baseurl: /
+repository: https://nakorndev.github.io/jekyll-bulma-theme
+timezone: Asia/Bangkok
+
+# Custom favicon
+# | You also can custom favicon by just replace it.
+
+favicon:
+  sixteen: /favicon-16x16.png
+  thirtytwo: /favicon-32x32.png
+
+# Version for our package
+# | We use this way to update package for your own, without our new commit :)
+# | But, please be sure that version is really available on provider, each url on sub comment.
+
+version:
+  bulma: 0.6.2 # This depend on "cdnjs.com"
+  font-awesome: 5.0.8 # This depend on "use.fontawesome.com", also name version it without "v" prefix.
+
+# Navigation links
+
+navigation:
+  github: nakorndev/jekyll-bulma-theme
+  twitter: nakorndev
+  facebook: nakorndev
+  google: 113457032081840418568
+
+paginate: 10
+
+sass:
+  style: compressed
+
+
+plugins:
+  - jekyll-paginate
