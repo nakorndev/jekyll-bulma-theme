@@ -1,9 +1,9 @@
 ---
-title: "Hello World"
-date: 2018-03-12 16:16:01 +0700
+title: "Nice cloud for hosting"
+date: 2018-03-13 13:13:13 +0700
 ---
 
-Recusandae molestias quas magnam quia quas debitis magni aut minus. Dolore accusamus voluptatem sit magni non accusantium non. Iusto assumenda et nam. Aut laboriosam accusantium dolorem qui.
+![Nice cloud right?](https://static.pexels.com/photos/880871/pexels-photo-880871.jpeg)
  
 <!--more-->
 

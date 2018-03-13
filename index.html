@@ -1,20 +1,49 @@
 ---
 layout: default
-title: Homepage
-subtitle: A home page for you
+title: Posts
+subtitle: A describe for posts page.
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <article class="media">
     <div class="media-content">
       <h1 class="title">
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
       </h1>
       <h2 class="subtitle">
-        {{ post.date }}
+        {{ post.date | date: site.date_format }}
       </h2>
       <div class="content">
-        {{ post.excerpt }}
+        <div class="field">
+          {{ post.excerpt }}
+        </div>
+        <div class="field">
+          <div class="level">
+            <div class="level-left">
+              <a class="button is-secondary" href="{{ post.url | absolute_url }}">Read more...</a>
+            </div>
+            <div class="level-right">
+              <span class="tag is-white is-medium" disabled>Share:</span>
+              <div class="buttons has-addons">
+                <span class="button is-facebook on-share" data-url="{{ post.url | absolute_url }}" data-provider="facebook">
+                  <span class="icon"><i class="fab fa-lg fa-facebook"></i></span>
+                </span>
+                <span class="button is-twitter on-share" data-url="{{ post.url | absolute_url }}" data-provider="twitter">
+                  <span class="icon"><i class="fab fa-lg fa-twitter"></i></span>
+                </span>
+                <span class="button is-google on-share" data-url="{{ post.url | absolute_url }}" data-provider="google">
+                  <span class="icon"><i class="fab fa-lg fa-google-plus-g"></i></span>
+                </span>
+                <span class="button is-pinterest on-share" data-url="{{ post.url | absolute_url }}" data-provider="pinterest">
+                  <span class="icon"><i class="fab fa-lg fa-pinterest-p"></i></span>
+                </span>
+                <span class="button is-pocket on-share">
+                  <span class="icon"><i class="fab fa-lg fa-get-pocket"></i></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </article>

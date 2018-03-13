@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% if page.is_post %}
+    <meta name="description" content="{{ page.excerpt | strip_html }}">
+  {% else %}
+    <meta name="description" content="{{ site.description }}">
+  {% endif %}
   <title>
     {% if page.title %}
       {{ page.title }} | {{ site.title }}
@@ -18,53 +23,127 @@
   <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
 </head>
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <nav class="navbar-brand">
-        <a class="navbar-item" href="/">{{ site.name }}</a>
-      </nav>
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="/">Posts</a>
-        </div>
-        <div class="navbar-end">
+  <div id="app">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <nav class="navbar-brand">
+          <a class="navbar-item" href="/">{{ site.name }}</a>
           {% if site.navigation.github %}
-            <a class="navbar-item text-github" href="https://github.com/{{ site.navigation.github }}">
+            <a class="navbar-item is-hidden-desktop text-github" href="https://github.com/{{ site.navigation.github }}">
               <i class="fab fa-lg fa-github"></i>
             </a>
           {% endif %}
           {% if site.navigation.twitter %}
-            <a class="navbar-item text-twitter" href="https://twitter.com/{{ site.navigation.twitter }}">
+            <a class="navbar-item is-hidden-desktop text-twitter" href="https://twitter.com/{{ site.navigation.twitter }}">
               <i class="fab fa-lg fa-twitter"></i>
             </a>
           {% endif %}
           {% if site.navigation.facebook %}
-            <a class="navbar-item text-facebook" href="https://www.facebook.com/{{ site.navigation.facebook }}">
+            <a class="navbar-item is-hidden-desktop text-facebook" href="https://www.facebook.com/{{ site.navigation.facebook }}">
               <i class="fab fa-lg fa-facebook"></i>
             </a>
           {% endif %}
+          <div class="navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+        <div class="navbar-menu" id="navMenu">
+          <div class="navbar-start">
+            <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="/">Posts</a>
+          </div>
+          <div class="navbar-end">
+            {% if site.navigation.github %}
+              <a class="navbar-item is-hidden-touch text-github" href="https://github.com/{{ site.navigation.github }}">
+                <i class="fab fa-lg fa-github"></i>
+              </a>
+            {% endif %}
+            {% if site.navigation.twitter %}
+              <a class="navbar-item is-hidden-touch text-twitter" href="https://twitter.com/{{ site.navigation.twitter }}">
+                <i class="fab fa-lg fa-twitter"></i>
+              </a>
+            {% endif %}
+            {% if site.navigation.facebook %}
+              <a class="navbar-item is-hidden-touch text-facebook" href="https://www.facebook.com/{{ site.navigation.facebook }}">
+                <i class="fab fa-lg fa-facebook"></i>
+              </a>
+            {% endif %}
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  {% if page.title %}
-    <header class="hero is-link">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            {{ page.title }}
-          </h1>
-          <h2 class="subtitle">
-            {{ page.subtitle }}
-          </h2>
+    </nav>
+    {% if page.title %}
+      <header class="hero is-link">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              {{ page.title }}
+            </h1>
+            <h2 class="subtitle">
+              {% if page.subtitle %}
+                {{ page.subtitle }}
+              {% else if page.date %}
+                {{ page.date | date: site.date_format }}
+              {% endif %}
+            </h2>
+          </div>
         </div>
+      </header>
+    {% endif %}
+    <main class="section">
+      <div class="container">
+        {{ content }}
       </div>
-    </header>
-  {% endif %}
-  <section class="section">
+    </main>
+  </div>
+  <footer class="footer">
     <div class="container">
-      {{ content }}
+      <div class="content has-text-centered">
+        <p>
+          <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+        <p>
+          <strong>jekyll-bulma-theme</strong> by <a href="https://github.com/nakorndev">nakorndev</a>. Powered by <a href="https://jekyllrb.com">Jekyll</a> and <a href="https://pages.github.com/">GitHub Pages</a>.
+        </p>
+      </div>
     </div>
-  </section>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+      var $onShare = Array.prototype.slice.call(document.querySelectorAll('.on-share'), 0);
+      if ($onShare.length > 0) {
+        $onShare.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+            var url = $el.dataset.url;
+            var provider = $el.dataset.provider;
+            switch (provider) {
+              case 'facebook': return popupSharing('https://www.facebook.com/sharer/sharer.php?u=' + url, provider);
+              case 'twitter': return popupSharing('https://twitter.com/intent/tweet?url=' + url, provider);
+              case 'google': return popupSharing('https://plus.google.com/share?url=' + url, provider);
+              case 'pinterest': return popupSharing('http://pinterest.com/pin/create/button/?url=' + url, provider);
+            }
+          });
+        });
+      }
+    });
+    function popupSharing(url, provider)
+    {
+      return window.open(url, 'Share to ' + provider, 'menubar=1,resizable=1,width=600,height=350')
+    }
+  </script>
 </body>
 </html>

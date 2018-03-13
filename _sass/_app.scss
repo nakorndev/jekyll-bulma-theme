@@ -1,6 +1,23 @@
 $github: #333333;
 $twitter: #1da1f2;
 $facebook: #3b5998;
+$google: #dd4b39;
+$pinterest: #bd081c;
+$pocket: #ef4056;
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#app {
+  flex: 1 0 auto;
+}
+
+.media-content {
+  overflow: hidden;
+}
 
 .text-github, a.navbar-item.text-github:hover {
   color: $github;
@@ -12,4 +29,39 @@ $facebook: #3b5998;
 
 .text-facebook, a.navbar-item.text-facebook:hover {
   color: $facebook;
+}
+
+.is-github {
+  background-color: $github;
+}
+
+.is-twitter {
+  background-color: $twitter;
+}
+
+.is-facebook {
+  background-color: $facebook;
+}
+
+.is-google {
+  background-color: $google;
+}
+
+.is-pinterest {
+  background-color: $pinterest;
+}
+
+.is-pocket {
+  background-color: $pocket;
+}
+
+.button.is-github,
+.button.is-twitter,
+.button.is-facebook,
+.button.is-google,
+.button.is-pinterest,
+.button.is-pocket
+{
+  border-color: transparent;
+  color: white;
 }

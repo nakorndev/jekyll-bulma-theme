@@ -1,11 +1,12 @@
-# Site information
+# Site information and SEO
 
 name: "jekyll-bulma-theme"
 title: "Jekyll Bulma Theme: a modern CSS for Jekyll user"
 description: "A pure Bulma theme for jekyll, easier to setup, and available for free."
-# baseurl: /
+# baseurl: / # Uncomment this for set your own custom base url.
 repository: https://nakorndev.github.io/jekyll-bulma-theme
 timezone: Asia/Bangkok
+lang: en
 
 # Custom favicon
 # | You also can custom favicon by just replace it.
@@ -15,7 +16,7 @@ favicon:
   thirtytwo: /favicon-32x32.png
 
 # Version for our package
-# | We use this way to update package for your own, without our new commit :)
+# | We use this way to update package for your own, without npm and our new commit :)
 # | But, please be sure that version is really available on provider, each url on sub comment.
 
 version:
@@ -23,6 +24,7 @@ version:
   font-awesome: 5.0.8 # This depend on "use.fontawesome.com", also name version it without "v" prefix.
 
 # Navigation links
+# | Null or comment the line if no need.
 
 navigation:
   github: nakorndev/jekyll-bulma-theme
@@ -30,11 +32,23 @@ navigation:
   facebook: nakorndev
   google: 113457032081840418568
 
+# Jekyll settings
+
 paginate: 10
+excerpt_separator: <!--more-->
+date_format: '%B %d, %Y' # See http://alanwsmith.com/jekyll-liquid-date-formatting-examples to more info
 
 sass:
   style: compressed
 
-
 plugins:
   - jekyll-paginate
+
+defaults:
+  -
+    scope:
+      path: _posts
+      type: posts
+    values:
+      layout: post
+      is_post: true
