@@ -17,7 +17,7 @@
     {% endif %}
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/{{ site.version.bulma }}/css/bulma.min.css">
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="{% asset_path app.css %}">
   <link rel="shortcut icon" type="image/png" href="{{ site.favicon.sixteen }}" sizes="16x16"/>
   <link rel="shortcut icon" type="image/png" href="{{ site.favicon.thirtytwo }}" sizes="32x32"/>
   <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
@@ -26,6 +26,7 @@
   <div id="shadowed" style="display: none;"></div>
   <div id="app">
     <nav id="navbar" class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div id="specialShadow" class="bd-special-shadow"></div>
       <div class="container">
         <nav class="navbar-brand">
           <a class="navbar-item" href="/">{{ site.name }}</a>
@@ -44,7 +45,6 @@
               <i class="fab fa-lg fa-facebook"></i>
             </a>
           {% endif %}
-          <div id="specialShadow" class="bd-special-shadow"></div>
           <div id="navbarBurger" class="navbar-burger" data-target="navMenu">
             <span></span>
             <span></span>
@@ -111,6 +111,6 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/app.js"></script>
+  <script src="{% asset_path app.js %}"></script>
 </body>
 </html>
