@@ -25,21 +25,7 @@ subtitle: A describe for posts page.
                   <a class="button is-secondary" href="{{ post.url | absolute_url }}">Read more...</a>
                 </div>
                 <div class="level-right">
-                  <span class="tag is-white is-medium" disabled>Share:</span>
-                  <div class="buttons has-addons">
-                    <span class="button is-facebook on-share" data-url="{{ post.url | absolute_url }}" data-provider="facebook">
-                      <span class="icon"><i class="fab fa-lg fa-facebook-f"></i></span>
-                    </span>
-                    <span class="button is-twitter on-share" data-url="{{ post.url | absolute_url }}" data-provider="twitter">
-                      <span class="icon"><i class="fab fa-lg fa-twitter"></i></span>
-                    </span>
-                    <span class="button is-google on-share" data-url="{{ post.url | absolute_url }}" data-provider="google">
-                      <span class="icon"><i class="fab fa-lg fa-google-plus-g"></i></span>
-                    </span>
-                    <span class="button is-pinterest on-share" data-url="{{ post.url | absolute_url }}" data-provider="pinterest">
-                      <span class="icon"><i class="fab fa-lg fa-pinterest-p"></i></span>
-                    </span>
-                  </div>
+                  {% include share-button.html %}
                 </div>
               </div>
             </div>

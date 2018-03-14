@@ -10,7 +10,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-
+  margin-top: 52px;
 }
 
 #app {
@@ -113,12 +113,15 @@ body {
   blockquote {
     background-color: transparent;
     border-left: none;
-    padding: 0 1.5em;
+    padding: 0 1.5em 0.5em;
     color: grey;
     font-size: 1.2rem;
     &::before {
       content: "\2014\2014\2014";
     }
+  }
+  a:not(.button):not(.tag) {
+    text-decoration: none;
   }
 }
 

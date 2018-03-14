@@ -13,21 +13,7 @@ layout: default
       <div class="level">
         <div class="level-left"></div>
         <div class="level-right">
-          <span class="tag is-white is-medium" disabled>Share:</span>
-          <div class="buttons has-addons">
-            <span class="button is-facebook on-share" data-url="{{ post.url | absolute_url }}" data-provider="facebook">
-              <span class="icon"><i class="fab fa-lg fa-facebook-f"></i></span>
-            </span>
-            <span class="button is-twitter on-share" data-url="{{ post.url | absolute_url }}" data-provider="twitter">
-              <span class="icon"><i class="fab fa-lg fa-twitter"></i></span>
-            </span>
-            <span class="button is-google on-share" data-url="{{ post.url | absolute_url }}" data-provider="google">
-              <span class="icon"><i class="fab fa-lg fa-google-plus-g"></i></span>
-            </span>
-            <span class="button is-pinterest on-share" data-url="{{ post.url | absolute_url }}" data-provider="pinterest">
-              <span class="icon"><i class="fab fa-lg fa-pinterest-p"></i></span>
-            </span>
-          </div>
+          {% include share-button.html %}
         </div>
       </div>
     </div>
@@ -46,10 +32,28 @@ layout: default
                 <div class="content">
                   <h1>
                     {{ page.author.realname }}
+                    <span class="is-pulled-right">
+                      {% if page.author.github %}
+                        <a target="_blank" href="https://github.com/{{ page.author.github }}">
+                          <span class="icon"><i class="fab fa-xs fa-github text-github"></i></span>
+                        </a>
+                      {% endif %}
+                      {% if page.author.twitter %}
+                        <a target="_blank" href="https://twitter.com/{{ page.author.twitter }}">
+                          <span class="icon"><i class="fab fa-xs fa-twitter text-twitter"></i></span>
+                        </a>
+                      {% endif %}
+                      {% if page.author.facebook %}
+                        <a target="_blank" href="https://www.facebook.com/{{ page.author.facebook }}">
+                          <span class="icon"><i class="fab fa-xs fa-facebook text-facebook"></i></span>
+                        </a>
+                      {% endif %}
+                    </span>
                   </h1>
                   <blockquote>
                     {{ page.author.quote }}
                   </blockquote>
+                  {{ page.author.extra-quote }}
                 </div>
               </div>
             </div>
