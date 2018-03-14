@@ -34,7 +34,7 @@ navigation:
 
 # Jekyll settings
 
-paginate: 10
+paginate: 5
 excerpt_separator: <!--more-->
 date_format: '%B %d, %Y' # See http://alanwsmith.com/jekyll-liquid-date-formatting-examples to more info
 
