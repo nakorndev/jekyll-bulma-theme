@@ -3,7 +3,7 @@
 name: "jekyll-bulma-theme"
 title: "Jekyll Bulma Theme: a modern CSS for Jekyll user"
 description: "A pure Bulma theme for jekyll, easier to setup, and available for free."
-# baseurl: / # Uncomment this for set your own custom base url.
+baseurl: https://nakorndev.github.io/jekyll-bulma-theme
 repository: https://nakorndev.github.io/jekyll-bulma-theme
 timezone: Asia/Bangkok
 lang: en
