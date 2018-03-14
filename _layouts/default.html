@@ -17,9 +17,9 @@
     {% endif %}
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/{{ site.version.bulma }}/css/bulma.min.css">
-  <link rel="stylesheet" href="{% asset_path app.css %}">
-  <link rel="shortcut icon" type="image/png" href="{{ site.favicon.sixteen }}" sizes="16x16"/>
-  <link rel="shortcut icon" type="image/png" href="{{ site.favicon.thirtytwo }}" sizes="32x32"/>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
+  <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/favicon/16x16.png" sizes="16x16"/>
+  <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/favicon/32x32.png" sizes="32x32"/>
   <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
       <div id="specialShadow" class="bd-special-shadow"></div>
       <div class="container">
         <nav class="navbar-brand">
-          <a class="navbar-item" href="/">{{ site.name }}</a>
+          <a class="navbar-item" href="{{ site.baseurl }}/">{{ site.name }}</a>
           {% if site.navigation.github %}
             <a class="navbar-item is-hidden-desktop text-github" target="_blank" href="https://github.com/{{ site.navigation.github }}">
               <i class="fab fa-lg fa-github"></i>
@@ -53,7 +53,7 @@
         </nav>
         <div class="navbar-menu" id="navMenu">
           <div class="navbar-start">
-            <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="/">Posts</a>
+            <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="{{ site.baseurl }}/">Posts</a>
           </div>
           <div class="navbar-end">
             {% if site.navigation.github %}
@@ -111,6 +111,6 @@
       </div>
     </div>
   </footer>
-  <script src="{% asset_path app.js %}"></script>
+  <script src="{{ site.baseurl }}/assets/js/app.js"></script>
 </body>
 </html>

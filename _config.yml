@@ -8,13 +8,6 @@ repository: https://nakorndev.github.io/jekyll-bulma-theme
 timezone: Asia/Bangkok
 lang: en
 
-# Custom favicon
-# | You also can custom favicon by just replace it.
-
-favicon:
-  sixteen: /favicon-16x16.png
-  thirtytwo: /favicon-32x32.png
-
 # Version for our package
 # | We use this way to update package for your own, without npm and our new commit :)
 # | But, please be sure that version is really available on provider, each url on sub comment.
