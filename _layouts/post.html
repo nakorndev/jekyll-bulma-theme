@@ -2,6 +2,60 @@
 layout: default
 ---
 
-<div class="content">
-  {{ content }}
-</div>
+<section class="section">
+  <div class="container">
+    <div class="field">
+      <div class="content">
+        {{ content }}
+      </div>
+    </div>
+    <div class="field">
+      <div class="level">
+        <div class="level-left"></div>
+        <div class="level-right">
+          <span class="tag is-white is-medium" disabled>Share:</span>
+          <div class="buttons has-addons">
+            <span class="button is-facebook on-share" data-url="{{ post.url | absolute_url }}" data-provider="facebook">
+              <span class="icon"><i class="fab fa-lg fa-facebook-f"></i></span>
+            </span>
+            <span class="button is-twitter on-share" data-url="{{ post.url | absolute_url }}" data-provider="twitter">
+              <span class="icon"><i class="fab fa-lg fa-twitter"></i></span>
+            </span>
+            <span class="button is-google on-share" data-url="{{ post.url | absolute_url }}" data-provider="google">
+              <span class="icon"><i class="fab fa-lg fa-google-plus-g"></i></span>
+            </span>
+            <span class="button is-pinterest on-share" data-url="{{ post.url | absolute_url }}" data-provider="pinterest">
+              <span class="icon"><i class="fab fa-lg fa-pinterest-p"></i></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if page.author %}
+      <div class="field">
+        <article class="message is-info">
+          <div class="message-header">
+            About author
+          </div>
+          <div class="message-body">
+            <div class="media">
+              <figure class="media-left">
+                <img class="image avatar" src="{{ page.author.image }}" alt="">
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1>
+                    {{ page.author.realname }}
+                  </h1>
+                  <blockquote>
+                    {{ page.author.quote }}
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    {% endif %}
+  </div>
+</section>

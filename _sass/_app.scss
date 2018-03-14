@@ -10,6 +10,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
 }
 
 #app {
@@ -101,4 +102,53 @@ body {
     content: "######";
     @extend %header-hashtag;
   }
+}
+
+.message-body .media {
+  img.avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  blockquote {
+    background-color: transparent;
+    border-left: none;
+    padding: 0 1.5em;
+    color: grey;
+    font-size: 1.2rem;
+    &::before {
+      content: "\2014\2014\2014";
+    }
+  }
+}
+
+.bd-special-shadow {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(transparent));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+  height: 8px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: center top;
+  transform-origin: center top;
+}
+
+@media screen and (max-width: 1023px) {
+  .bd-is-clipped-touch {
+    overflow: hidden !important;
+  }
+}
+
+#shadowed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, .5);
 }

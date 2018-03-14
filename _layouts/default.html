@@ -23,8 +23,9 @@
   <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
 </head>
 <body>
+  <div id="shadowed" style="display: none;"></div>
   <div id="app">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav id="navbar" class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="container">
         <nav class="navbar-brand">
           <a class="navbar-item" href="/">{{ site.name }}</a>
@@ -43,7 +44,8 @@
               <i class="fab fa-lg fa-facebook"></i>
             </a>
           {% endif %}
-          <div class="navbar-burger" data-target="navMenu">
+          <div id="specialShadow" class="bd-special-shadow"></div>
+          <div id="navbarBurger" class="navbar-burger" data-target="navMenu">
             <span></span>
             <span></span>
             <span></span>
@@ -91,10 +93,8 @@
         </div>
       </header>
     {% endif %}
-    <main class="section">
-      <div class="container">
-        {{ content }}
-      </div>
+    <main>
+      {{ content }}
     </main>
   </div>
   <footer class="footer">
@@ -111,40 +111,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      if ($navbarBurgers.length > 0) {
-        $navbarBurgers.forEach(function ($el) {
-          $el.addEventListener('click', function () {
-            var target = $el.dataset.target;
-            var $target = document.getElementById(target);
-            $el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-          });
-        });
-      }
-      var $onShare = Array.prototype.slice.call(document.querySelectorAll('.on-share'), 0);
-      if ($onShare.length > 0) {
-        $onShare.forEach(function ($el) {
-          $el.addEventListener('click', function () {
-            var url = $el.dataset.url;
-            var provider = $el.dataset.provider;
-            switch (provider) {
-              case 'facebook': return popupSharing('https://www.facebook.com/sharer/sharer.php?u=' + url, provider);
-              case 'twitter': return popupSharing('https://twitter.com/intent/tweet?url=' + url, provider);
-              case 'google': return popupSharing('https://plus.google.com/share?url=' + url, provider);
-              case 'pinterest': return popupSharing('http://pinterest.com/pin/create/button/?url=' + url, provider);
-            }
-          });
-        });
-      }
-      console.log(twemoji.parse(document.body));
-    });
-    function popupSharing(url, provider)
-    {
-      return window.open(url, 'Share to ' + provider, 'menubar=1,resizable=1,width=600,height=350')
-    }
-  </script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
