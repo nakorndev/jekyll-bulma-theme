@@ -1,11 +1,23 @@
-# jekyll-bulma-theme
+# Bulma theme for Jekyll 3
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
+This is a pure [Bulma CSS Framework](https://bulma.io) by using a `cdnjs` provider instead of using `npm`, so this may need internet connection for development and cannot custom a `sass` for your own.
 
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
+> My English is not good, so you can make pull request to improvement this `README.md`.
 
-TODO: Delete this and the text above, and describe your gem
+## Feature
 
+- Layout `default.html` that clone from [Bulma Documentation](https://bulma.io/documentation/overview/start/).
+  - Favicon 32x32 and 64x64 pixel support.
+  - Scroll up to show `navbar` as fixed.
+  - Add navbar shadow for wrapper when active.
+  - Dropdown and Modal support.
+- Share button for `Facebook`, `Twitter`, `Google Plus` and `Pinterest`
+- Example of `index.html` for `jekyll-pagination`.
+- Meta tag of `description` by `page.excerpt` (Receive from before `<!--more-->` of posts).
+- Custom css for header to show `#` like markdown.
+- Author information for posts.
+- Custom version of packages from cdn provider.
+- Configable for date formatting.
 
 ## Installation
 
@@ -31,11 +43,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
+After done of installation, so you may copy a `index.html` for index page that included with `jekyll-pagination` support, also you can custom you own `_includes` by replace exact name to custom `_layouts/default.html` like you may need an extra sub-route for `header.html` or translate to you own language.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nakorndev/jekyll-bulma-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Development
 
@@ -49,4 +61,3 @@ To add a custom directory to your theme-gem, please edit the regexp in `jekyll-b
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
