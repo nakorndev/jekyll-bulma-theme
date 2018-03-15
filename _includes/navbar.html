@@ -1,0 +1,47 @@
+<div class="container">
+  <nav class="navbar-brand">
+    <a class="navbar-item" href="{{ site.baseurl }}/">{{ site.name }}</a>
+    {% if site.navigation.github %}
+      <a class="navbar-item is-hidden-desktop text-github" target="_blank" href="https://github.com/{{ site.navigation.github }}">
+        <i class="fab fa-lg fa-github"></i>
+      </a>
+    {% endif %}
+    {% if site.navigation.twitter %}
+      <a class="navbar-item is-hidden-desktop text-twitter" target="_blank" href="https://twitter.com/{{ site.navigation.twitter }}">
+        <i class="fab fa-lg fa-twitter"></i>
+      </a>
+    {% endif %}
+    {% if site.navigation.facebook %}
+      <a class="navbar-item is-hidden-desktop text-facebook" target="_blank" href="https://www.facebook.com/{{ site.navigation.facebook }}">
+        <i class="fab fa-lg fa-facebook"></i>
+      </a>
+    {% endif %}
+    <div id="navbarBurger" class="navbar-burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-start">
+      <a class="navbar-item {% if page.url == "/" %}is-active{% endif %}" href="{{ site.baseurl }}/">Posts</a>
+    </div>
+    <div class="navbar-end">
+      {% if site.navigation.github %}
+        <a class="navbar-item is-hidden-touch text-github" target="_blank" href="https://github.com/{{ site.navigation.github }}">
+          <i class="fab fa-lg fa-github"></i>
+        </a>
+      {% endif %}
+      {% if site.navigation.twitter %}
+        <a class="navbar-item is-hidden-touch text-twitter" target="_blank" href="https://twitter.com/{{ site.navigation.twitter }}">
+          <i class="fab fa-lg fa-twitter"></i>
+        </a>
+      {% endif %}
+      {% if site.navigation.facebook %}
+        <a class="navbar-item is-hidden-touch text-facebook" target="_blank" href="https://www.facebook.com/{{ site.navigation.facebook }}">
+          <i class="fab fa-lg fa-facebook"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
