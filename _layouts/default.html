@@ -21,6 +21,7 @@
   <link rel="shortcut icon" type="image/png" href="{{ 'assets/favicon/16x16.png' | absolute_url }}" sizes="16x16"/>
   <link rel="shortcut icon" type="image/png" href="{{ 'assets/favicon/32x32.png' | absolute_url }}" sizes="32x32"/>
   <script defer src="https://use.fontawesome.com/releases/v{{ site.version.font-awesome }}/js/all.js"></script>
+  {% include head.html %}
 </head>
 <body>
   <div id="shadowed" style="display: none;"></div>
@@ -49,6 +50,6 @@
     </div>
   </footer>
   <script src="{{ 'assets/js/app.js' | absolute_url }}"></script>
-  {% include footer.html %}
+  {% include foot.html %}
 </body>
 </html>
