@@ -72,37 +72,32 @@ body {
   list-style: none;
 }
 
-%header-hashtag {
-  color: #3273dc;
-  margin-right: 10px;
-}
-
-.content {
-  h1::before {
-    content: "#";
-    @extend %header-hashtag;
-  }
-  h2::before {
-    content: "##";
-    @extend %header-hashtag;
-  }
-  h3::before {
-    content: "###";
-    @extend %header-hashtag;
-  }
-  h4::before {
-    content: "####";
-    @extend %header-hashtag;
-  }
-  h5::before {
-    content: "#####";
-    @extend %header-hashtag;
-  }
-  h6::before {
-    content: "######";
-    @extend %header-hashtag;
-  }
-}
+// .content {
+//   h1::before {
+//     content: "#";
+//     @extend %header-hashtag;
+//   }
+//   h2::before {
+//     content: "##";
+//     @extend %header-hashtag;
+//   }
+//   h3::before {
+//     content: "###";
+//     @extend %header-hashtag;
+//   }
+//   h4::before {
+//     content: "####";
+//     @extend %header-hashtag;
+//   }
+//   h5::before {
+//     content: "#####";
+//     @extend %header-hashtag;
+//   }
+//   h6::before {
+//     content: "######";
+//     @extend %header-hashtag;
+//   }
+// }
 
 .message-body .media {
   img.avatar {

@@ -138,24 +138,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function goingDown(currentY) {
-    var trigger = NAVBAR_HEIGHT;
-    whereYouStoppedScrolling = currentY;
+    if (!navbarOpen) {
+      var trigger = NAVBAR_HEIGHT;
+      whereYouStoppedScrolling = currentY;
 
-    if (currentY > horizon) {
-      horizon = currentY;
+      if (currentY > horizon) {
+        horizon = currentY;
+      }
+
+      translateHeader(currentY, false);
     }
-
-    translateHeader(currentY, false);
   }
 
   function goingUp(currentY) {
-    var trigger = 0;
+    if (!navbarOpen) {
+      var trigger = 0;
 
-    if (currentY < whereYouStoppedScrolling - NAVBAR_HEIGHT) {
-      horizon = currentY + NAVBAR_HEIGHT;
+      if (currentY < whereYouStoppedScrolling - NAVBAR_HEIGHT) {
+        horizon = currentY + NAVBAR_HEIGHT;
+      }
+
+      translateHeader(currentY, true);
     }
-
-    translateHeader(currentY, true);
   }
 
   function constrainDelta(delta) {
@@ -237,5 +241,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     });
+  }
+
+  // Heading anchor
+
+  var contentEl = document.getElementsByClassName('content');
+  for (var el of contentEl) {
+    [].forEach.call(el.querySelectorAll('h1, h2, h3, h4, h5, h6'), (function (head) {
+      head.innerHTML = `
+        <a href="#${head.id}">
+          ${toHashTag(head.tagName.substring(1))}
+        </a>
+        <span>${head.innerText}</span>
+      `;
+    }));
+  }
+
+  function toHashTag(num) {
+    var hashTags = '';
+    for(var i = 0; i < num; i++) {
+      hashTags += '#';
+    }
+    return hashTags;
   }
 });
