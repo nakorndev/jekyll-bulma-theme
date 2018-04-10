@@ -10,7 +10,7 @@
     <meta name="description" content="{{ site.description }}">
   {% endif %}
   <title>
-    {% if page.title %}
+    {% if page.title and page.disable_title != true %}
       {{ page.title }} | {{ site.title }}
     {% else %}
       {{ site.title }}
